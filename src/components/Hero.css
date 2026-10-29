@@ -1,0 +1,470 @@
+/* ==========================================================================
+   Hero Component Styles
+   ========================================================================== */
+
+.hero-section {
+  min-height: calc(100vh - 80px);
+  padding: 8.5rem 0 5rem 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 3.5rem;
+}
+
+/* Left Column Content */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Intro Badge */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 1rem;
+  width: fit-content;
+  border-radius: var(--radius-full);
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);
+}
+
+.badge-icon {
+  color: var(--accent-primary);
+}
+
+.badge-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #e0f2fe;
+  letter-spacing: 0.02em;
+}
+
+/* Pulse indicator animation */
+.pulse-indicator {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent-primary);
+}
+
+.pulse-ring {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-primary);
+  animation: pulseRipple 2s infinite ease-out;
+}
+
+@keyframes pulseRipple {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* Hero Typography */
+.hero-title {
+  font-size: 3.4rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+.hero-subtitle {
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.45;
+  color: #d1d5db;
+}
+
+.hero-bio {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 580px;
+}
+
+/* Quick Meta */
+.hero-quick-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 0.25rem;
+}
+
+.meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.meta-icon {
+  color: var(--accent-primary);
+}
+
+.text-cyan {
+  color: var(--accent-primary);
+}
+
+/* CTA Buttons */
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.hero-btn-main {
+  padding: 0.85rem 1.85rem;
+  font-size: 1rem;
+}
+
+.hero-btn-sub {
+  padding: 0.85rem 1.75rem;
+  font-size: 1rem;
+}
+
+/* Stats Strip */
+.hero-stats-strip {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: rgba(17, 24, 39, 0.6);
+  border: var(--border-subtle);
+  border-radius: var(--radius-md);
+  width: fit-content;
+  backdrop-filter: blur(8px);
+}
+
+.stat-pill {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Right Column: Hero Visual */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.photo-card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+}
+
+/* Ambient Backdrop Glow */
+.photo-glow-backdrop {
+  position: absolute;
+  inset: -15px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, rgba(129, 140, 248, 0.15) 50%, transparent 75%);
+  filter: blur(35px);
+  z-index: 0;
+  border-radius: var(--radius-xl);
+}
+
+/* Photo Frame */
+.photo-frame {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 1 / 1.08;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #111827;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.65), 0 0 30px rgba(56, 189, 248, 0.12);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.photo-frame:hover {
+  transform: translateY(-4px);
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 24px 48px -10px rgba(0, 0, 0, 0.75), 0 0 40px rgba(56, 189, 248, 0.25);
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.photo-frame:hover .profile-photo {
+  transform: scale(1.03);
+}
+
+/* Live Status Badge on Bottom of Photo */
+.photo-overlay-status {
+  position: absolute;
+  bottom: 0.85rem;
+  left: 0.85rem;
+  right: 0.85rem;
+  padding: 0.65rem 1rem;
+  background: rgba(11, 15, 25, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.status-live-indicator {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+  flex-shrink: 0;
+}
+
+.status-live-text {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #f3f4f6;
+  letter-spacing: 0.01em;
+}
+
+/* Floating Badges */
+.floating-badge {
+  position: absolute;
+  z-index: 2;
+  background: rgba(17, 24, 39, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+  animation: floatAnim 4s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.badge-top-right {
+  top: -15px;
+  right: -25px;
+  border-color: rgba(56, 189, 248, 0.35);
+  animation-delay: 0s;
+}
+
+.badge-bottom-left {
+  bottom: 45px;
+  left: -30px;
+  border-color: rgba(129, 140, 248, 0.35);
+  animation-delay: 1.5s;
+}
+
+@keyframes floatAnim {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+.float-icon {
+  flex-shrink: 0;
+}
+
+.float-icon.cyan {
+  color: var(--accent-primary);
+}
+
+.float-icon.indigo {
+  color: var(--accent-secondary);
+}
+
+.float-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.float-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.float-sub {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* Creative Code Pill */
+.code-pill-tag {
+  position: absolute;
+  top: 15px;
+  left: -20px;
+  z-index: 2;
+  background: rgba(11, 15, 25, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-primary);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.tag-sparkle {
+  color: #38bdf8;
+}
+
+/* Responsiveness */
+@media (max-width: 992px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    text-align: center;
+  }
+
+  .hero-content {
+    align-items: center;
+  }
+
+  .hero-badge {
+    margin: 0 auto;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .hero-bio {
+    margin: 0 auto;
+  }
+
+  .hero-quick-meta {
+    justify-content: center;
+  }
+
+  .hero-cta-group {
+    justify-content: center;
+  }
+
+  .hero-stats-strip {
+    margin: 1.5rem auto 0 auto;
+  }
+
+  .photo-card-wrapper {
+    max-width: 320px;
+  }
+
+  .badge-top-right {
+    right: -10px;
+  }
+
+  .badge-bottom-left {
+    left: -10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-section {
+    padding-top: 6.5rem;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-btn-main, .hero-btn-sub {
+    width: 100%;
+  }
+
+  .hero-stats-strip {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.8rem;
+  }
+
+  .stat-divider {
+    width: 80%;
+    height: 1px;
+  }
+
+  .floating-badge {
+    display: none;
+  }
+
+  .code-pill-tag {
+    display: none;
+  }
+}

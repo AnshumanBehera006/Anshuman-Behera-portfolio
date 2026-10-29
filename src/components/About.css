@@ -1,0 +1,274 @@
+/* ==========================================================================
+   About Component Styles
+   ========================================================================== */
+
+.about-section {
+  background: linear-gradient(180deg, transparent 0%, rgba(17, 24, 39, 0.4) 50%, transparent 100%);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.95fr;
+  gap: 2.5rem;
+  align-items: stretch;
+}
+
+/* Summary Card */
+.about-summary-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2.5rem;
+}
+
+.summary-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-primary);
+}
+
+.summary-heading {
+  font-size: 1.65rem;
+  line-height: 1.35;
+  color: #f3f4f6;
+}
+
+.summary-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.summary-paragraphs p {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: #9ca3af;
+}
+
+.summary-paragraphs strong {
+  color: #f9fafb;
+}
+
+/* Quick Chips Section */
+.quick-chips-wrapper {
+  margin-top: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.chips-section-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #e5e7eb;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 1rem;
+}
+
+.chips-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.chip-card {
+  background: rgba(11, 15, 25, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: all var(--transition-fast);
+}
+
+.chip-card:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+  background: rgba(17, 24, 39, 0.8);
+}
+
+.chip-card.full-width {
+  grid-column: 1 / -1;
+}
+
+.chip-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chip-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.chip-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f3f4f6;
+}
+
+.chip-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.lang-pill {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #c7d2fe;
+  background: rgba(129, 140, 248, 0.12);
+  border: 1px solid rgba(129, 140, 248, 0.25);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+.interest-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #fbcfe8;
+  background: rgba(244, 63, 94, 0.1);
+  border: 1px solid rgba(244, 63, 94, 0.2);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-fast);
+}
+
+.interest-pill:hover {
+  transform: translateY(-2px);
+  border-color: rgba(244, 63, 94, 0.4);
+}
+
+/* Pillars Column */
+.about-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  justify-content: space-between;
+}
+
+.pillar-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.5rem;
+}
+
+.pillar-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: rgba(11, 15, 25, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pillar-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.pillar-title {
+  font-size: 1.15rem;
+  color: #f9fafb;
+}
+
+.pillar-desc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #9ca3af;
+}
+
+/* Colors for Pillars */
+.text-cyan {
+  color: var(--accent-primary);
+}
+
+.text-indigo {
+  color: var(--accent-secondary);
+}
+
+.text-emerald {
+  color: #10b981;
+}
+
+.text-rose {
+  color: #f43f5e;
+}
+
+/* Motto Box */
+.motto-box {
+  padding: 1.5rem 1.75rem;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(129, 140, 248, 0.05) 100%);
+  border: 1px dashed rgba(56, 189, 248, 0.35);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.motto-text {
+  font-style: italic;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #e2e8f0;
+}
+
+.motto-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.author-avatar-initials {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--accent-gradient);
+  color: #0b0f19;
+  font-weight: 800;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.author-name {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #f9fafb;
+}
+
+.author-role {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Responsiveness */
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chips-list {
+    grid-template-columns: 1fr;
+  }
+}

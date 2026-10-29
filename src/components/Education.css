@@ -1,0 +1,251 @@
+/* ==========================================================================
+   Education Component Styles (Timeline Card Layout)
+   ========================================================================== */
+
+.education-section {
+  position: relative;
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 0 2rem 0;
+}
+
+/* Vertical Timeline Track */
+.timeline-line {
+  position: absolute;
+  top: 2rem;
+  bottom: 2rem;
+  left: 28px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent-primary) 0%, var(--accent-secondary) 70%, rgba(255, 255, 255, 0.05) 100%);
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  gap: 2.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Timeline Marker */
+.timeline-marker {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.marker-dot {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #0b0f19;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  transition: all var(--transition-normal);
+}
+
+.timeline-item:hover .marker-dot {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+  transform: scale(1.08);
+}
+
+.current-item .marker-dot {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  background: rgba(11, 15, 25, 0.95);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
+}
+
+.marker-current-icon {
+  animation: spinSlow 8s linear infinite;
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Timeline Card */
+.timeline-card {
+  flex-grow: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.timeline-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.timeline-meta-top {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-period {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  font-family: var(--font-mono);
+}
+
+.current-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-full);
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #34d399;
+}
+
+.timeline-degree {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #f9fafb;
+}
+
+.timeline-institution {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  margin-top: 0.25rem;
+}
+
+/* Score Badge */
+.score-badge-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+}
+
+.score-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-md);
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  color: #e0f2fe;
+}
+
+.award-icon {
+  color: var(--accent-primary);
+}
+
+.score-value {
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.score-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Meta Bar */
+.timeline-meta-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.meta-pill {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.meta-pill strong {
+  color: #e2e8f0;
+}
+
+/* Highlights */
+.timeline-highlights {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.timeline-highlights li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #9ca3af;
+}
+
+.check-bullet {
+  color: var(--accent-primary);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+@media (max-width: 640px) {
+  .timeline-line {
+    left: 20px;
+  }
+
+  .timeline-item {
+    gap: 1.25rem;
+  }
+
+  .marker-dot {
+    width: 42px;
+    height: 42px;
+  }
+
+  .score-badge-wrapper {
+    align-items: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  .timeline-card {
+    padding: 1.5rem;
+  }
+
+  .timeline-degree {
+    font-size: 1.15rem;
+  }
+}
