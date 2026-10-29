@@ -27,7 +27,7 @@ export default function ResumeModal({ isOpen, onClose }) {
   const handleCopyText = () => {
     const text = `
 ANSHUMAN BEHERA - Frontend & Web Developer
-Email: anshumanbehera006@gmail.com | Phone: +91 7605913242 | Location: Mayurbhanj, Odisha, India
+Email: anshumanbehera006@gmail.com | Phone: +91 7978580823 | Location: Mayurbhanj, Odisha, India
 
 SUMMARY:
 Motivated and detail-oriented B.Tech final-year developer passionate about building high-performance web applications and solving real-world problems.
@@ -113,7 +113,7 @@ LANGUAGES & INTERESTS:
             </div>
             <div className="sheet-contact-block">
               <div><Mail size={13} /> anshumanbehera006@gmail.com</div>
-              <div><Phone size={13} /> +91 7605913242</div>
+              <div><Phone size={13} /> +91 7978580823</div>
               <div><MapPin size={13} /> Mayurbhanj, Odisha, India</div>
             </div>
           </div>
@@ -208,3 +208,4 @@ LANGUAGES & INTERESTS:
     </div>
   );
 }
+

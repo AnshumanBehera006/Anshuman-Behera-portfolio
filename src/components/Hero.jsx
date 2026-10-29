@@ -7,7 +7,8 @@ import {
   Code2, 
   Terminal, 
   CheckCircle2,
-  MapPin
+  MapPin,
+  MessageCircle
 } from 'lucide-react';
 import profileImg from '../assets/profile.jpg';
 import './Hero.css';
@@ -72,14 +73,15 @@ export default function Hero() {
               <ArrowRight size={18} />
             </button>
 
-            <button
-              type="button"
+            <a
+              href="https://wa.me/917978580823"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn btn-outline hero-btn-sub"
-              onClick={() => handleScrollTo('contact')}
             >
-              <Mail size={18} />
-              <span>Contact Me</span>
-            </button>
+              <MessageCircle size={18} className="text-emerald" />
+              <span>WhatsApp Chat</span>
+            </a>
           </div>
 
           {/* Highlight stat mini-strip */}
@@ -154,3 +156,4 @@ export default function Hero() {
     </section>
   );
 }
+

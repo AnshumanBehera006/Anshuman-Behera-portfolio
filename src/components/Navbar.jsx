@@ -143,3 +143,4 @@ export default function Navbar({ onOpenResume }) {
     </header>
   );
 }
+

@@ -3,52 +3,54 @@ import {
   Mail, 
   Phone, 
   MapPin, 
-  Send, 
-  CheckCircle, 
   Copy, 
   Check, 
-  MessageSquare,
   Sparkles,
-  ArrowRight
+  ExternalLink,
+  MessageCircle,
+  ArrowUpRight
 } from 'lucide-react';
 import './Contact.css';
 
+// WhatsApp icon SVG component
+function WhatsAppIcon({ size = 22, className = '' }) {
+  return (
+    <svg 
+      width={size} 
+      height={size} 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth="2" 
+      strokeLinecap="round" 
+      strokeLinejoin="round" 
+      className={className}
+    >
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+    </svg>
+  );
+}
+
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [copiedType, setCopiedType] = useState(null);
+  const whatsappNumber = "7978580823";
+  const formattedNumber = "+91 7978580823";
+  const defaultWhatsAppUrl = `https://wa.me/91${whatsappNumber}?text=${encodeURIComponent("Hi Anshuman, I came across your portfolio and would like to connect!")}`;
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-      return;
+  const quickMessages = [
+    {
+      label: "Discuss a Frontend Role",
+      text: "Hi Anshuman, I came across your portfolio and would like to discuss an open developer opportunity."
+    },
+    {
+      label: "Project Collaboration",
+      text: "Hi Anshuman, I would love to collaborate on a web application project with you."
+    },
+    {
+      label: "General Inquiry / Say Hi",
+      text: "Hi Anshuman, saw your portfolio and wanted to connect!"
     }
-
-    setIsSubmitting(true);
-
-    // Simulate reactive API/form response
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormData({ name: '', email: '', message: '' });
-
-      // Automatically reset status message after 6 seconds
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 6000);
-    }, 1000);
-  };
+  ];
 
   const handleCopy = (text, type) => {
     navigator.clipboard.writeText(text);
@@ -65,14 +67,14 @@ export default function Contact() {
         {/* Section Header */}
         <div className="section-header">
           <div className="section-tag">
-            <MessageSquare size={14} />
-            <span>Get In Touch</span>
+            <MessageCircle size={14} />
+            <span>Instant Connect</span>
           </div>
           <h2 className="section-title">
-            Let's Build Something <span className="text-gradient">Impactful Together</span>
+            Let's Connect Directly on <span className="text-gradient-whatsapp">WhatsApp</span>
           </h2>
           <p className="section-subtitle">
-            Whether you have an upcoming project, a developer role, or just want to connect, feel free to drop a message!
+            Skip the slow email forms. Reach out directly for project collaborations, job opportunities, or a quick conversation.
           </p>
         </div>
 
@@ -81,13 +83,51 @@ export default function Contact() {
           
           {/* Left Column: Direct Info Cards */}
           <div className="contact-info-col">
-            <h3 className="contact-subhead">Direct Contact Channels</h3>
+            <h3 className="contact-subhead">Direct Contact Details</h3>
             <p className="contact-subtext">
-              Reach out directly via email, call, or drop by if you are in Odisha. I usually respond within 24 hours.
+              Reach out directly via WhatsApp, call, or email. I am actively available and typically respond within minutes.
             </p>
 
             <div className="contact-cards-stack">
               
+              {/* WhatsApp & Phone Card */}
+              <div className="contact-card card-glass highlight-whatsapp">
+                <div className="contact-card-icon-box text-emerald">
+                  <WhatsAppIcon size={24} />
+                </div>
+                <div className="contact-card-content">
+                  <span className="contact-label">WhatsApp &amp; Direct Call</span>
+                  <a 
+                    href={`https://wa.me/91${whatsappNumber}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="contact-value text-emerald"
+                  >
+                    {formattedNumber}
+                  </a>
+                </div>
+                <div className="card-actions">
+                  <button
+                    type="button"
+                    className="copy-btn"
+                    onClick={() => handleCopy(formattedNumber, 'phone')}
+                    title="Copy phone number"
+                  >
+                    {copiedType === 'phone' ? <Check size={16} className="text-emerald" /> : <Copy size={16} />}
+                    <span className="tooltip">{copiedType === 'phone' ? 'Copied!' : 'Copy'}</span>
+                  </button>
+                  <a
+                    href={`https://wa.me/91${whatsappNumber}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="redirect-icon-btn"
+                    title="Open in WhatsApp"
+                  >
+                    <ArrowUpRight size={16} />
+                  </a>
+                </div>
+              </div>
+
               {/* Email Card */}
               <div className="contact-card card-glass">
                 <div className="contact-card-icon-box text-cyan">
@@ -110,31 +150,9 @@ export default function Contact() {
                 </button>
               </div>
 
-              {/* Phone Card */}
-              <div className="contact-card card-glass">
-                <div className="contact-card-icon-box text-indigo">
-                  <Phone size={22} />
-                </div>
-                <div className="contact-card-content">
-                  <span className="contact-label">Phone &amp; WhatsApp</span>
-                  <a href="tel:+917605913242" className="contact-value">
-                    +91 7605913242
-                  </a>
-                </div>
-                <button
-                  type="button"
-                  className="copy-btn"
-                  onClick={() => handleCopy('+917605913242', 'phone')}
-                  title="Copy phone number"
-                >
-                  {copiedType === 'phone' ? <Check size={16} className="text-emerald" /> : <Copy size={16} />}
-                  <span className="tooltip">{copiedType === 'phone' ? 'Copied!' : 'Copy'}</span>
-                </button>
-              </div>
-
               {/* Location Card */}
               <div className="contact-card card-glass">
-                <div className="contact-card-icon-box text-emerald">
+                <div className="contact-card-icon-box text-indigo">
                   <MapPin size={22} />
                 </div>
                 <div className="contact-card-content">
@@ -154,94 +172,64 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Right Column: Controlled React Contact Form */}
-          <div className="contact-form-wrapper card-glass">
-            <h3 className="form-title">Send a Direct Message</h3>
-            <p className="form-desc">
-              Fill out the form below to initiate an immediate inquiry or conversation.
+          {/* Right Column: High-Impact WhatsApp Redirect Card (Replaces the Form) */}
+          <div className="whatsapp-redirect-card card-glass">
+            
+            <div className="wa-card-badge">
+              <span className="wa-live-indicator"></span>
+              <span>Direct WhatsApp Channel</span>
+            </div>
+
+            <div className="wa-card-header">
+              <div className="wa-logo-box">
+                <WhatsAppIcon size={36} />
+              </div>
+              <div>
+                <h3 className="wa-card-title">Chat with Anshuman</h3>
+                <span className="wa-phone-number">{formattedNumber}</span>
+              </div>
+            </div>
+
+            <p className="wa-card-desc">
+              Click below to immediately redirect to WhatsApp and start a conversation. No contact forms needed — straight to chat!
             </p>
 
-            {isSubmitted && (
-              <div className="submission-alert success">
-                <CheckCircle size={20} className="alert-icon" />
-                <div>
-                  <strong>Message Sent Successfully!</strong>
-                  <p>Thank you for reaching out. Anshuman will review and get back to you shortly.</p>
-                </div>
-              </div>
-            )}
+            {/* Primary Main WhatsApp Redirect Button */}
+            <a
+              href={defaultWhatsAppUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-whatsapp-primary"
+            >
+              <WhatsAppIcon size={20} />
+              <span>Open WhatsApp Chat</span>
+              <ArrowUpRight size={18} className="wa-btn-arrow" />
+            </a>
 
-            <form onSubmit={handleSubmit} className="contact-form">
-              {/* Name Field */}
-              <div className="form-group">
-                <label htmlFor="name" className="form-label">
-                  Your Full Name <span className="required">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="e.g. John Doe"
-                  required
-                  className="form-input"
-                />
+            {/* Quick Conversation Starter Prompts */}
+            <div className="quick-starters-wrap">
+              <span className="starters-label">Or choose a pre-filled conversation starter:</span>
+              <div className="starters-list">
+                {quickMessages.map((item, idx) => (
+                  <a
+                    key={idx}
+                    href={`https://wa.me/91${whatsappNumber}?text=${encodeURIComponent(item.text)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="starter-chip"
+                  >
+                    <span>{item.label}</span>
+                    <ArrowUpRight size={14} className="chip-arrow" />
+                  </a>
+                ))}
               </div>
+            </div>
 
-              {/* Email Field */}
-              <div className="form-group">
-                <label htmlFor="email" className="form-label">
-                  Your Email Address <span className="required">*</span>
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="e.g. john@example.com"
-                  required
-                  className="form-input"
-                />
-              </div>
+            {/* Safe & Direct Note */}
+            <div className="wa-guarantee-note">
+              <span>⚡ Direct redirection to official WhatsApp Web or WhatsApp Mobile App</span>
+            </div>
 
-              {/* Message Field */}
-              <div className="form-group">
-                <label htmlFor="message" className="form-label">
-                  Your Message <span className="required">*</span>
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell me about your project, timeline, or open opportunity..."
-                  required
-                  className="form-input form-textarea"
-                />
-              </div>
-
-              {/* Submit Button */}
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="btn btn-primary submit-btn"
-              >
-                {isSubmitting ? (
-                  <>
-                    <span className="spinner"></span>
-                    <span>Sending Message...</span>
-                  </>
-                ) : (
-                  <>
-                    <span>Send Message</span>
-                    <Send size={17} />
-                  </>
-                )}
-              </button>
-            </form>
           </div>
 
         </div>

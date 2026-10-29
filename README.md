@@ -86,5 +86,6 @@ npm run preview
 
 ## 📬 Contact Information
 - **Email:** anshumanbehera006@gmail.com
-- **Phone:** +91 7605913242
+- **Phone & WhatsApp:** +91 7978580823
 - **Location:** Mayurbhanj, Odisha, India
+
