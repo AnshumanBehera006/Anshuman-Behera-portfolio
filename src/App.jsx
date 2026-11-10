@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-import Skills from './components/Skills';
+import Projects from './components/Projects';
 import Experience from './components/Experience';
+import Skills from './components/Skills';
 import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -14,12 +15,8 @@ export default function App() {
 
   return (
     <div className="portfolio-app">
-      {/* Dynamic Ambient Background Lights & Grid Overlay */}
-      <div className="bg-ambient-layer" aria-hidden="true">
-        <div className="ambient-orb-1"></div>
-        <div className="ambient-orb-2"></div>
-        <div className="ambient-orb-3"></div>
-      </div>
+      {/* Subtle background layers */}
+      <div className="bg-ambient-layer" aria-hidden="true"></div>
       <div className="bg-grid-overlay" aria-hidden="true"></div>
 
       {/* Sticky Navigation Header */}
@@ -27,8 +24,9 @@ export default function App() {
 
       {/* Main Content Sections */}
       <main id="main-content">
-        <Hero />
+        <Hero onOpenResume={() => setIsResumeOpen(true)} />
         <About />
+        <Projects />
         <Experience />
         <Skills />
         <Education />
@@ -46,4 +44,3 @@ export default function App() {
     </div>
   );
 }
-

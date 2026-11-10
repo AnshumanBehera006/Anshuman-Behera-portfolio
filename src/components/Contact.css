@@ -1,161 +1,117 @@
 /* ==========================================================================
-   Contact Component Styles (WhatsApp Direct Redirection)
+   Contact Component Styles - Clean & Professional
    ========================================================================== */
 
 .contact-section {
   position: relative;
 }
 
-.text-gradient-whatsapp {
-  background: linear-gradient(135deg, #25d366 0%, #38bdf8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1.15fr;
-  gap: 3rem;
+  gap: 2.25rem;
   align-items: stretch;
 }
 
-/* Left Column */
-.contact-info-col {
+/* Left: Contact Info List */
+.contact-info-list {
+  padding: 2.25rem;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-}
-
-.contact-subhead {
-  font-size: 1.5rem;
-  color: #f9fafb;
-}
-
-.contact-subtext {
-  font-size: 1rem;
-  line-height: 1.65;
-  color: var(--text-secondary);
-}
-
-.contact-cards-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 1.15rem;
-  margin-top: 0.5rem;
-}
-
-.contact-card {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  padding: 1.25rem 1.5rem;
-  position: relative;
-  transition: all var(--transition-normal);
-}
-
-.contact-card.highlight-whatsapp {
-  border-color: rgba(37, 211, 102, 0.35);
-  background: linear-gradient(135deg, rgba(37, 211, 102, 0.08) 0%, rgba(17, 24, 39, 0.8) 100%);
-}
-
-.contact-card.highlight-whatsapp:hover {
-  border-color: #25d366;
-  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(37, 211, 102, 0.25);
-}
-
-.contact-card-icon-box {
-  width: 48px;
-  height: 48px;
+  background: var(--bg-card);
+  border: var(--border-subtle);
   border-radius: var(--radius-md);
-  background: rgba(11, 15, 25, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contact-box-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #ffffff;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.contact-item {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.04);
 }
 
-.contact-card-icon-box.text-emerald {
-  color: #25d366;
-  background: rgba(37, 211, 102, 0.12);
-  border-color: rgba(37, 211, 102, 0.3);
+.contact-item:last-child {
+  border-bottom: none;
 }
 
-.contact-card-content {
+.item-text {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
-  flex-grow: 1;
 }
 
-.contact-label {
+.item-label {
   font-size: 0.78rem;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   color: var(--text-muted);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
 }
 
-.contact-value {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: #f3f4f6;
+.item-value {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-decoration: none;
   transition: color var(--transition-fast);
-  word-break: break-all;
 }
 
-.contact-value:hover {
+.item-value:hover {
   color: var(--accent-primary);
 }
 
-.contact-value.text-emerald {
-  color: #25d366;
+.item-value.highlight-link {
+  color: var(--accent-primary);
 }
 
-.contact-value.text-emerald:hover {
-  color: #4ade80;
+.item-value.static-value {
+  color: var(--text-secondary);
 }
 
-.card-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-/* Copy and Redirect Buttons */
-.copy-btn, .redirect-icon-btn {
+/* Copy Button */
+.copy-btn {
   position: relative;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--text-secondary);
   border-radius: var(--radius-sm);
-  padding: 0.55rem;
+  padding: 0.45rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all var(--transition-fast);
-  text-decoration: none;
 }
 
-.copy-btn:hover, .redirect-icon-btn:hover {
-  background: rgba(37, 211, 102, 0.15);
-  border-color: rgba(37, 211, 102, 0.4);
-  color: #25d366;
+.copy-btn:hover {
+  background: rgba(255, 255, 255, 0.09);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .copy-btn .tooltip {
   position: absolute;
-  bottom: calc(100% + 8px);
+  bottom: calc(100% + 6px);
   right: 50%;
   transform: translateX(50%);
-  background: #111827;
-  color: #f3f4f6;
+  background: #1e293b;
+  color: #f8fafc;
   font-size: 0.72rem;
-  font-weight: 600;
-  padding: 0.25rem 0.5rem;
+  font-weight: 500;
+  padding: 0.2rem 0.5rem;
   border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   white-space: nowrap;
   pointer-events: none;
   opacity: 0;
@@ -166,215 +122,90 @@
   opacity: 1;
 }
 
-/* Callout */
-.hire-callout {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 1.25rem;
-  background: rgba(56, 189, 248, 0.06);
-  border: 1px dashed rgba(56, 189, 248, 0.3);
-  border-radius: var(--radius-md);
-  font-size: 0.88rem;
-  color: #e0f2fe;
-  line-height: 1.5;
-  margin-top: 0.75rem;
-}
-
-/* ==========================================================================
-   WhatsApp Dedicated Card (Replaces the Form)
-   ========================================================================== */
-
-.whatsapp-redirect-card {
-  padding: 2.75rem 2.5rem;
+/* Right: WhatsApp Action Box */
+.contact-action-box {
+  padding: 2.25rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  background: linear-gradient(145deg, rgba(17, 24, 39, 0.95) 0%, rgba(11, 20, 24, 0.9) 100%);
-  border: 1px solid rgba(37, 211, 102, 0.3);
-  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.7), 0 0 35px rgba(37, 211, 102, 0.12);
-  position: relative;
-  overflow: hidden;
+  gap: 1.15rem;
+  background: var(--bg-card);
+  border: var(--border-subtle);
+  border-radius: var(--radius-md);
+  justify-content: center;
 }
 
-.whatsapp-redirect-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #25d366 0%, #38bdf8 100%);
-}
-
-.wa-card-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+.action-tag {
   font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #4ade80;
-  background: rgba(37, 211, 102, 0.12);
-  border: 1px solid rgba(37, 211, 102, 0.25);
-  padding: 0.3rem 0.75rem;
-  border-radius: var(--radius-full);
-  width: fit-content;
-}
-
-.wa-live-indicator {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #25d366;
-  box-shadow: 0 0 8px #25d366;
-}
-
-.wa-card-header {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-}
-
-.wa-logo-box {
-  width: 60px;
-  height: 60px;
-  border-radius: var(--radius-lg);
-  background: rgba(37, 211, 102, 0.15);
-  border: 1px solid rgba(37, 211, 102, 0.4);
-  color: #25d366;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  box-shadow: 0 0 25px rgba(37, 211, 102, 0.2);
-}
-
-.wa-card-title {
-  font-size: 1.6rem;
-  font-weight: 800;
-  color: #f9fafb;
-  line-height: 1.2;
-}
-
-.wa-phone-number {
-  font-size: 1.05rem;
-  font-family: var(--font-mono);
-  font-weight: 700;
-  color: #4ade80;
-}
-
-.wa-card-desc {
-  font-size: 0.98rem;
-  line-height: 1.65;
-  color: #cbd5e1;
-}
-
-/* Primary WhatsApp Action Button */
-.btn-whatsapp-primary {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  padding: 1.05rem 1.85rem;
-  background: #25d366;
-  color: #052e16;
-  font-weight: 700;
-  font-size: 1.05rem;
-  border-radius: var(--radius-md);
-  text-decoration: none;
-  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
-  transition: all var(--transition-normal);
-  border: none;
-  cursor: pointer;
-}
-
-.btn-whatsapp-primary:hover {
-  background: #2ee06e;
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
-  color: #02200f;
-}
-
-.wa-btn-arrow {
-  transition: transform var(--transition-fast);
-}
-
-.btn-whatsapp-primary:hover .wa-btn-arrow {
-  transform: translate(3px, -3px);
-}
-
-/* Quick Starter Prompts */
-.quick-starters-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-top: 0.5rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.starters-label {
-  font-size: 0.8rem;
   font-weight: 600;
-  color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  color: var(--accent-primary);
+  letter-spacing: 0.05em;
 }
 
-.starters-list {
+.action-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.action-desc {
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.btn-wa-direct {
+  width: 100%;
+  padding: 0.8rem 1.25rem;
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
+
+/* Quick Prompts */
+.prefilled-prompts {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.65rem;
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.starter-chip {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.7rem 1rem;
-  border-radius: var(--radius-md);
-  background: rgba(11, 15, 25, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #e2e8f0;
-  font-size: 0.88rem;
+.prompts-label {
+  font-size: 0.78rem;
   font-weight: 500;
+  color: var(--text-muted);
+}
+
+.prompts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.prompt-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
   text-decoration: none;
   transition: all var(--transition-fast);
 }
 
-.starter-chip:hover {
-  background: rgba(37, 211, 102, 0.1);
-  border-color: rgba(37, 211, 102, 0.35);
-  color: #4ade80;
-  transform: translateX(4px);
+.prompt-link:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
-.chip-arrow {
-  color: var(--text-muted);
-  transition: color var(--transition-fast);
-}
-
-.starter-chip:hover .chip-arrow {
-  color: #25d366;
-}
-
-/* Guarantee note */
-.wa-guarantee-note {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  text-align: center;
-  margin-top: 0.25rem;
-}
-
-@media (max-width: 900px) {
+@media (max-width: 860px) {
   .contact-grid {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
-  .whatsapp-redirect-card {
-    padding: 2rem 1.5rem;
+    gap: 1.75rem;
   }
 }

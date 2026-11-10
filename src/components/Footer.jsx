@@ -1,14 +1,5 @@
 import React from 'react';
-import { 
-  ArrowUp, 
-  Heart, 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Code2,
-  Globe,
-  ExternalLink
-} from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import './Footer.css';
 
 export default function Footer() {
@@ -28,45 +19,31 @@ export default function Footer() {
             <a href="#home" className="footer-logo">
               <span className="logo-bracket">&lt;</span>
               <span className="logo-text">AB</span>
-              <span className="logo-slash">&#47;</span>
-              <span className="logo-bracket">&gt;</span>
+              <span className="logo-bracket"> /&gt;</span>
             </a>
             <p className="footer-bio">
-              Anshuman Behera — Final year B.Tech student &amp; Frontend Web Developer specializing in React.js, modern CSS architectures, and performant user interfaces.
+              Anshuman Behera — B.Tech (4th Year), Frontend &amp; Web Developer. Experienced in building responsive interfaces with React.js and RESTful services with Node.js.
             </p>
             <div className="footer-contact-mini">
-              <span>Mayurbhanj, Odisha, India</span>
+              <span>Nudadiha, Mayurbhanj, Odisha 757077</span>
               <span className="mini-dot">•</span>
               <a href="mailto:anshumanbehera006@gmail.com">anshumanbehera006@gmail.com</a>
+              <span className="mini-dot">•</span>
+              <a href="https://wa.me/917978580823" target="_blank" rel="noopener noreferrer">+91 7978580823</a>
             </div>
           </div>
 
           {/* Quick Nav Links */}
           <div className="footer-nav-col">
-            <h4 className="footer-heading">Quick Links</h4>
+            <h4 className="footer-heading">Navigation</h4>
             <ul className="footer-links">
-              <li><a href="#about">About Me</a></li>
-              <li><a href="#experience">DRDO Experience</a></li>
-              <li><a href="#skills">Technical Skills</a></li>
-              <li><a href="#education">Education &amp; Scores</a></li>
-              <li><a href="#contact">Contact Details</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#experience">Experience</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#education">Education</a></li>
+              <li><a href="#contact">Contact</a></li>
             </ul>
-          </div>
-
-          {/* Tech Stack of Portfolio */}
-          <div className="footer-stack-col">
-            <h4 className="footer-heading">Portfolio Stack</h4>
-            <div className="footer-pills">
-              <span className="footer-pill">React.js</span>
-              <span className="footer-pill">Vanilla CSS</span>
-              <span className="footer-pill">CSS Variables</span>
-              <span className="footer-pill">CSS Grid &amp; Flex</span>
-              <span className="footer-pill">Lucide Icons</span>
-              <span className="footer-pill">Vite</span>
-            </div>
-            <p className="zero-framework-note">
-              Built with 0% external UI CSS frameworks (no Tailwind or Bootstrap) — 100% handcrafted pure CSS.
-            </p>
           </div>
 
         </div>
@@ -74,11 +51,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="footer-bottom">
           <p className="footer-copy">
-            &copy; {new Date().getFullYear()} <strong>Anshuman Behera</strong>. All rights reserved.
-          </p>
-
-          <p className="footer-crafted">
-            Engineered with <Code2 size={14} className="crafted-icon text-cyan" /> &amp; React.js
+            &copy; {new Date().getFullYear()} Anshuman Behera. All rights reserved.
           </p>
 
           <button
@@ -88,7 +61,7 @@ export default function Footer() {
             title="Scroll to Top"
             aria-label="Scroll to top of page"
           >
-            <ArrowUp size={18} />
+            <ArrowUp size={16} />
           </button>
         </div>
 

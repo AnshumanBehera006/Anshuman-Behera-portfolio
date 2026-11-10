@@ -1,57 +1,19 @@
 import React from 'react';
-import { 
-  User, 
-  MapPin, 
-  Languages, 
-  Heart, 
-  Zap, 
-  Users2, 
-  Target, 
-  Video, 
-  Camera, 
-  Plane,
-  Sparkles
-} from 'lucide-react';
 import './About.css';
 
 export default function About() {
-  const highlights = [
+  const strengths = [
     {
-      icon: <Zap size={22} className="about-hl-icon text-cyan" />,
-      title: "Fast Learner",
-      desc: "Rapidly grasps new frameworks, libraries, and design specifications to turn conceptual ideas into production-ready web interfaces."
+      title: 'Commitment & Dedication',
+      desc: 'Takes ownership of assignments with disciplined execution, attention to detail, and a focus on clean, reliable code.'
     },
     {
-      icon: <Target size={22} className="about-hl-icon text-indigo" />,
-      title: "Strong Dedication",
-      desc: "Passionate about pixel-perfection, clean semantic structure, responsive behavior, and robust user experience across devices."
+      title: 'Fast Learner',
+      desc: 'Quickly adapts to modern frameworks, libraries, and design specifications, translating concepts into functional applications.'
     },
     {
-      icon: <Users2 size={22} className="about-hl-icon text-emerald" />,
-      title: "Collaborative Teamwork",
-      desc: "Experienced in collaborative engineering environments, code reviews, and group workflows honed during defence R&D project exposure."
-    }
-  ];
-
-  const quickChips = [
-    {
-      category: "Location",
-      icon: <MapPin size={17} />,
-      items: ["Mayurbhanj, Odisha, India"]
-    },
-    {
-      category: "Languages",
-      icon: <Languages size={17} />,
-      items: ["English", "Hindi", "Odia"]
-    },
-    {
-      category: "Interests & Creative Passions",
-      icon: <Heart size={17} />,
-      items: [
-        { label: "Video Editing", icon: <Video size={14} /> },
-        { label: "Photography", icon: <Camera size={14} /> },
-        { label: "Traveling", icon: <Plane size={14} /> }
-      ]
+      title: 'Collaborative Teamwork',
+      desc: 'Experienced in group engineering workflows, code integration, and clear communication fostered during defence R&D training.'
     }
   ];
 
@@ -61,15 +23,10 @@ export default function About() {
         
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-tag">
-            <User size={14} />
-            <span>About Me</span>
-          </div>
-          <h2 className="section-title">
-            Passionate About Crafting <span className="text-gradient">Modern Digital Experiences</span>
-          </h2>
+          <span className="section-tag">Overview</span>
+          <h2 className="section-title">About Me</h2>
           <p className="section-subtitle">
-            A blend of technical precision, design sensitivity, and continuous curiosity for modern web development.
+            Background, core strengths, and career orientation.
           </p>
         </div>
 
@@ -77,112 +34,48 @@ export default function About() {
         <div className="about-grid">
           
           {/* Main Story & Profile Summary Card */}
-          <div className="about-summary-card card-glass">
-            <div className="summary-badge">
-              <Sparkles size={14} className="text-cyan" />
-              <span>Developer Journey</span>
-            </div>
-
-            <h3 className="summary-heading">
-              Building interactive, accessible, and high-performance interfaces
+          <div className="about-summary card-clean">
+            <h3 className="about-heading">
+              Engineering web interfaces with focus on usability and structure
             </h3>
 
-            <div className="summary-paragraphs">
+            <div className="about-text">
               <p>
-                I am a final-year B.Tech student with a deep passion for frontend web development. 
-                My focus centers on constructing intuitive, seamless, and reactive interfaces using React.js 
-                and modern CSS architectures.
+                I am a final-year B.Tech student with a strong interest in frontend and web development. My objective is to apply and further develop my technical skills within a forward-thinking organization, contributing effectively to team projects and supporting company growth through strong commitment and a willingness to learn.
               </p>
               <p>
-                Having contributed to project development at <strong>DRDO - Proof &amp; Experimental Establishment (PXE)</strong>, 
-                I thrive in environments requiring methodical planning, strong dedication, fast adaptability, and 
-                harmonious team collaboration.
-              </p>
-              <p>
-                Beyond standard code implementation, I appreciate the aesthetics of UI/UX, bringing creative skills 
-                from video editing and photography into visual balance, rhythm, and interactive details.
+                During my internship training at <strong>DRDO - Proof &amp; Experimental Establishment (PXE)</strong>, I worked on frontend interfaces and modular components for the VISION project in a collaborative group setting. I also designed and deployed a full-stack <strong>Zerodha Clone</strong> web application with RESTful APIs supporting complete CRUD operations.
               </p>
             </div>
 
-            {/* Quick Info Chips Container */}
-            <div className="quick-chips-wrapper">
-              <h4 className="chips-section-title">Personal Quick Highlights:</h4>
-              <div className="chips-list">
-                
-                {/* Location Chip */}
-                <div className="chip-card">
-                  <div className="chip-header">
-                    <MapPin size={16} className="chip-icon text-cyan" />
-                    <span className="chip-label">Location</span>
-                  </div>
-                  <div className="chip-value">Mayurbhanj, Odisha, India</div>
-                </div>
-
-                {/* Languages Chip */}
-                <div className="chip-card">
-                  <div className="chip-header">
-                    <Languages size={16} className="chip-icon text-indigo" />
-                    <span className="chip-label">Languages</span>
-                  </div>
-                  <div className="chip-pills">
-                    <span className="lang-pill">English</span>
-                    <span className="lang-pill">Hindi</span>
-                    <span className="lang-pill">Odia</span>
-                  </div>
-                </div>
-
-                {/* Interests Chip */}
-                <div className="chip-card full-width">
-                  <div className="chip-header">
-                    <Heart size={16} className="chip-icon text-rose" />
-                    <span className="chip-label">Creative Interests</span>
-                  </div>
-                  <div className="chip-pills">
-                    <span className="interest-pill">
-                      <Video size={14} /> Video Editing
-                    </span>
-                    <span className="interest-pill">
-                      <Camera size={14} /> Photography
-                    </span>
-                    <span className="interest-pill">
-                      <Plane size={14} /> Traveling
-                    </span>
-                  </div>
-                </div>
-
+            {/* Quick Profile Details */}
+            <div className="about-details-table">
+              <div className="detail-row">
+                <span className="detail-label">Location</span>
+                <span className="detail-value">Nudadiha, Mayurbhanj, Odisha 757077</span>
+              </div>
+              <div className="detail-row">
+                <span className="detail-label">Languages</span>
+                <span className="detail-value">English, Hindi, Odia</span>
+              </div>
+              <div className="detail-row">
+                <span className="detail-label">Interests &amp; Hobbies</span>
+                <span className="detail-value">Video Editing, Photography, Travelling</span>
               </div>
             </div>
-
           </div>
 
-          {/* Pillars of Strength Cards Column */}
-          <div className="about-pillars">
-            {highlights.map((item, idx) => (
-              <div key={idx} className="pillar-card card-glass">
-                <div className="pillar-icon-box">
-                  {item.icon}
+          {/* Strengths Column */}
+          <div className="about-strengths">
+            <h3 className="strengths-title">Core Strengths</h3>
+            <div className="strengths-list">
+              {strengths.map((item, idx) => (
+                <div key={idx} className="strength-card card-clean">
+                  <h4 className="strength-heading">{item.title}</h4>
+                  <p className="strength-desc">{item.desc}</p>
                 </div>
-                <div className="pillar-body">
-                  <h4 className="pillar-title">{item.title}</h4>
-                  <p className="pillar-desc">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-
-            {/* Interactive Quote / Motto Box */}
-            <div className="motto-box">
-              <p className="motto-text">
-                "Writing clean, maintainable code is an art — making it performant and delighting users is the mission."
-              </p>
-              <div className="motto-author">
-                <div className="author-avatar-initials">AB</div>
-                <div>
-                  <span className="author-name">Anshuman Behera</span>
-                  <span className="author-role">Frontend Engineer</span>
-                </div>
-              </div>
+              ))}
             </div>
-
           </div>
 
         </div>
@@ -191,4 +84,3 @@ export default function About() {
     </section>
   );
 }
-

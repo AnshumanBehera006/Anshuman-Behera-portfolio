@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, FileText, ArrowUpRight } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import './Navbar.css';
 
 const navLinks = [
   { name: 'About', href: '#about' },
+  { name: 'Projects', href: '#projects' },
   { name: 'Experience', href: '#experience' },
   { name: 'Skills', href: '#skills' },
   { name: 'Education', href: '#education' },
@@ -17,14 +18,9 @@ export default function Navbar({ onOpenResume }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 30) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 20);
 
-      // Determine active section based on scroll position
-      const sections = ['home', 'about', 'experience', 'skills', 'education', 'contact'];
+      const sections = ['home', 'about', 'projects', 'experience', 'skills', 'education', 'contact'];
       const scrollPosition = window.scrollY + 120;
 
       for (const sectionId of sections) {
@@ -60,8 +56,7 @@ export default function Navbar({ onOpenResume }) {
         <a href="#home" className="brand-logo" onClick={(e) => handleNavClick(e, '#home')}>
           <span className="logo-bracket">&lt;</span>
           <span className="logo-text">AB</span>
-          <span className="logo-slash">&#47;</span>
-          <span className="logo-bracket">&gt;</span>
+          <span className="logo-bracket"> /&gt;</span>
         </a>
 
         {/* Desktop Navigation */}
@@ -78,7 +73,6 @@ export default function Navbar({ onOpenResume }) {
                     onClick={(e) => handleNavClick(e, link.href)}
                   >
                     {link.name}
-                    {isActive && <span className="active-dot" />}
                   </a>
                 </li>
               );
@@ -92,11 +86,8 @@ export default function Navbar({ onOpenResume }) {
             type="button" 
             className="resume-btn" 
             onClick={onOpenResume}
-            title="View Anshuman's Resume"
           >
-            <FileText size={16} />
-            <span>Resume</span>
-            <ArrowUpRight size={14} className="resume-icon-arrow" />
+            Resume
           </button>
 
           {/* Mobile Menu Toggle Button */}
@@ -106,7 +97,7 @@ export default function Navbar({ onOpenResume }) {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
@@ -134,8 +125,7 @@ export default function Navbar({ onOpenResume }) {
                 onOpenResume();
               }}
             >
-              <FileText size={18} />
-              <span>View Resume</span>
+              View Resume
             </button>
           </li>
         </ul>
@@ -143,4 +133,3 @@ export default function Navbar({ onOpenResume }) {
     </header>
   );
 }
-

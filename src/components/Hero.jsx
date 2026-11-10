@@ -1,19 +1,9 @@
 import React from 'react';
-import { 
-  ArrowRight, 
-  Mail, 
-  GraduationCap, 
-  Sparkles, 
-  Code2, 
-  Terminal, 
-  CheckCircle2,
-  MapPin,
-  MessageCircle
-} from 'lucide-react';
+import { ArrowRight, ExternalLink } from 'lucide-react';
 import profileImg from '../assets/profile.jpg';
 import './Hero.css';
 
-export default function Hero() {
+export default function Hero({ onOpenResume }) {
   const handleScrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) {
@@ -27,128 +17,86 @@ export default function Hero() {
         
         {/* Left Column: Text & CTAs */}
         <div className="hero-content">
-          {/* Intro Badge */}
-          <div className="hero-badge">
-            <span className="pulse-indicator">
-              <span className="pulse-dot"></span>
-              <span className="pulse-ring"></span>
-            </span>
-            <GraduationCap size={16} className="badge-icon" />
-            <span className="badge-text">B.Tech Final Year Student</span>
+          <div className="hero-status">
+            <span className="status-dot"></span>
+            <span>B.Tech (Pursuing) — 4th Year</span>
           </div>
 
-          {/* Title */}
           <h1 className="hero-title">
-            Hi, I'm <span className="text-gradient">Anshuman Behera</span>
+            Anshuman Behera
           </h1>
 
-          {/* Subtitle */}
-          <h2 className="hero-subtitle">
-            Frontend &amp; Web Developer crafting clean, modern user interfaces.
+          <h2 className="hero-role">
+            Frontend &amp; Web Developer
           </h2>
 
-          {/* Bio Snippet */}
           <p className="hero-bio">
-            Motivated and detail-oriented developer passionate about building high-performance web applications and solving real-world problems.
+            Motivated and detail-oriented B.Tech student passionate about developing clean, responsive user interfaces and full-stack web applications. Experienced with React.js, Node.js, Express.js, and modern REST APIs.
           </p>
 
-          {/* Quick Info Tags */}
-          <div className="hero-quick-meta">
-            <span className="meta-item">
-              <MapPin size={15} className="meta-icon" /> Mayurbhanj, Odisha, India
-            </span>
-            <span className="meta-item">
-              <CheckCircle2 size={15} className="meta-icon text-cyan" /> Ready for Frontend Roles
-            </span>
+          <div className="hero-meta">
+            <span>Nudadiha, Mayurbhanj, Odisha 757077</span>
+            <span className="meta-sep">•</span>
+            <span>Available for Developer Opportunities</span>
           </div>
 
-          {/* CTA Buttons */}
+          {/* Clean CTA Buttons */}
           <div className="hero-cta-group">
             <button
               type="button"
-              className="btn btn-primary hero-btn-main"
-              onClick={() => handleScrollTo('experience')}
+              className="btn btn-primary"
+              onClick={() => handleScrollTo('projects')}
             >
-              <span>Explore Experience</span>
-              <ArrowRight size={18} />
+              <span>View Projects</span>
+              <ArrowRight size={16} />
             </button>
 
             <a
-              href="https://wa.me/917978580823"
+              href="https://wa.me/917978580823?text=Hi%20Anshuman,%20I%20reviewed%20your%20portfolio%20and%20would%20like%20to%20connect."
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-outline hero-btn-sub"
+              className="btn btn-outline"
             >
-              <MessageCircle size={18} className="text-emerald" />
               <span>WhatsApp Chat</span>
             </a>
+
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={onOpenResume}
+            >
+              <span>Resume</span>
+            </button>
           </div>
 
-          {/* Highlight stat mini-strip */}
-          <div className="hero-stats-strip">
-            <div className="stat-pill">
-              <span className="stat-value">DRDO</span>
-              <span className="stat-label">Intern Trainee</span>
+          {/* Professional Highlights Strip */}
+          <div className="hero-stats-row">
+            <div className="stat-item">
+              <span className="stat-title">DRDO (PXE)</span>
+              <span className="stat-desc">Internship Trainee</span>
             </div>
             <div className="stat-divider"></div>
-            <div className="stat-pill">
-              <span className="stat-value">React.js</span>
-              <span className="stat-label">Core Specialization</span>
+            <div className="stat-item">
+              <span className="stat-title">Zerodha Clone</span>
+              <span className="stat-desc">Full-Stack Project</span>
             </div>
             <div className="stat-divider"></div>
-            <div className="stat-pill">
-              <span className="stat-value">2026</span>
-              <span className="stat-label">Graduation Year</span>
+            <div className="stat-item">
+              <span className="stat-title">2022 – 2026</span>
+              <span className="stat-desc">B.Tech Standing</span>
             </div>
           </div>
         </div>
 
-        {/* Right Column: Hero Visual with Anshuman's Photo */}
+        {/* Right Column: Profile Image */}
         <div className="hero-visual">
-          <div className="photo-card-wrapper">
-            
-            {/* Ambient Background Glow Behind Photo */}
-            <div className="photo-glow-backdrop"></div>
-
-            {/* Glowing Border Card */}
-            <div className="photo-frame">
-              <img
-                src={profileImg}
-                alt="Anshuman Behera - Frontend & Web Developer"
-                className="profile-photo"
-                loading="eager"
-              />
-
-              {/* Status Badge overlay on bottom */}
-              <div className="photo-overlay-status">
-                <span className="status-live-indicator"></span>
-                <span className="status-live-text">Open to Work &amp; Collaborations</span>
-              </div>
-            </div>
-
-            {/* Floating Floating Chips / Interactive Badges */}
-            <div className="floating-badge badge-top-right">
-              <Code2 size={16} className="float-icon cyan" />
-              <div className="float-text-wrap">
-                <span className="float-title">React Developer</span>
-                <span className="float-sub">Modern Web Apps</span>
-              </div>
-            </div>
-
-            <div className="floating-badge badge-bottom-left">
-              <Terminal size={16} className="float-icon indigo" />
-              <div className="float-text-wrap">
-                <span className="float-title">Full Stack Ready</span>
-                <span className="float-sub">MERN Ecosystem</span>
-              </div>
-            </div>
-
-            {/* Subtle decorative code snippet tag */}
-            <div className="code-pill-tag">
-              <Sparkles size={14} className="tag-sparkle" />
-              <span>&lt;CreativeCode /&gt;</span>
-            </div>
-
+          <div className="photo-container">
+            <img
+              src={profileImg}
+              alt="Anshuman Behera - Frontend & Web Developer"
+              className="profile-photo"
+              loading="eager"
+            />
           </div>
         </div>
 
@@ -156,4 +104,3 @@ export default function Hero() {
     </section>
   );
 }
-

@@ -1,86 +1,36 @@
-import React, { useState } from 'react';
-import { 
-  Code, 
-  Layers, 
-  Server, 
-  Cpu, 
-  Sparkles, 
-  Check, 
-  FileCode2, 
-  Atom, 
-  Boxes,
-  Database
-} from 'lucide-react';
+import React from 'react';
 import './Skills.css';
 
-const skillsData = [
-  // Frontend Category
-  {
-    name: 'React.js',
-    category: 'Frontend',
-    icon: <Atom size={28} className="skill-icon-atom" />,
-    level: 'Core Specialization',
-    description: 'Component architecture, Hooks (useState, useEffect), reactive state management, and reusable UI systems.',
-    tags: ['Hooks', 'JSX', 'Virtual DOM', 'Component Design'],
-    accent: '#38bdf8'
-  },
-  {
-    name: 'JavaScript (ES6+)',
-    category: 'Frontend',
-    icon: <FileCode2 size={28} className="skill-icon-js" />,
-    level: 'Advanced',
-    description: 'Modern syntax, Arrow functions, Async/Await, Promises, Destructuring, Closures, and DOM manipulation.',
-    tags: ['ES6+', 'Async/Await', 'Event Loop', 'Modular JS'],
-    accent: '#facc15'
-  },
-  {
-    name: 'HTML5',
-    category: 'Frontend',
-    icon: <Code size={28} className="skill-icon-html" />,
-    level: 'Strong Foundation',
-    description: 'Semantic markup, accessibility (a11y) standards, SEO best practices, and structured document hierarchy.',
-    tags: ['Semantic Web', 'Forms', 'SEO', 'Web Accessibility'],
-    accent: '#f97316'
-  },
-  {
-    name: 'CSS3',
-    category: 'Frontend',
-    icon: <Layers size={28} className="skill-icon-css" />,
-    level: 'Advanced',
-    description: 'CSS Grid, Flexbox layouts, CSS Custom Properties (Variables), Responsive Media Queries, and Glassmorphism.',
-    tags: ['CSS Grid', 'Flexbox', 'CSS Variables', 'Keyframe Animations'],
-    accent: '#38bdf8'
-  },
-
-  // Backend Category
-  {
-    name: 'Node.js',
-    category: 'Backend',
-    icon: <Server size={28} className="skill-icon-node" />,
-    level: 'Proficient',
-    description: 'Server-side JavaScript runtime, npm package ecosystem, asynchronous I/O, and server setup.',
-    tags: ['Node Runtime', 'npm', 'File System', 'Async I/O'],
-    accent: '#22c55e'
-  },
-  {
-    name: 'Express.js',
-    category: 'Backend',
-    icon: <Cpu size={28} className="skill-icon-express" />,
-    level: 'Proficient',
-    description: 'Fast minimalist web framework, RESTful API endpoints, request/response lifecycle, and middleware creation.',
-    tags: ['REST APIs', 'Middleware', 'Routing', 'JSON Processing'],
-    accent: '#a855f7'
-  }
-];
-
-const categories = ['All Skills', 'Frontend', 'Backend'];
-
 export default function Skills() {
-  const [activeCategory, setActiveCategory] = useState('All Skills');
-
-  const filteredSkills = activeCategory === 'All Skills'
-    ? skillsData
-    : skillsData.filter(s => s.category === activeCategory);
+  const skillCategories = [
+    {
+      title: 'Frontend Development',
+      skills: [
+        { name: 'React.js', description: 'Functional components, Hooks, and modular UI structure' },
+        { name: 'JavaScript (ES6+)', description: 'Modern syntax, async operations, DOM manipulation' },
+        { name: 'HTML5', description: 'Semantic structure, accessibility, and clean markup' },
+        { name: 'CSS3', description: 'Responsive layouts, Flexbox, and CSS Grid systems' }
+      ]
+    },
+    {
+      title: 'Backend & APIs',
+      skills: [
+        { name: 'Node.js', description: 'Server-side runtime and package ecosystem' },
+        { name: 'Express.js', description: 'Minimalist web framework and middleware setup' },
+        { name: 'REST APIs', description: 'Designing endpoints and HTTP request handling' },
+        { name: 'CRUD Operations', description: 'Data creation, reading, updating, and deletion' }
+      ]
+    },
+    {
+      title: 'Workflow & Fundamentals',
+      skills: [
+        { name: 'Git & GitHub', description: 'Version control, commit history, and code management' },
+        { name: 'Responsive Design', description: 'Mobile-first adaptation across varied screen sizes' },
+        { name: 'Component Architecture', description: 'Reusable, maintainable interface patterns' },
+        { name: 'Collaborative Engineering', description: 'Team-based integration and code reviews' }
+      ]
+    }
+  ];
 
   return (
     <section id="skills" className="skills-section">
@@ -88,116 +38,31 @@ export default function Skills() {
         
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-tag">
-            <Cpu size={14} />
-            <span>Technical Arsenal</span>
-          </div>
-          <h2 className="section-title">
-            Skills &amp; <span className="text-gradient">Technologies</span>
-          </h2>
+          <span className="section-tag">Capabilities</span>
+          <h2 className="section-title">Technical Skills</h2>
           <p className="section-subtitle">
-            Focused on crafting dynamic, robust, and responsive web applications from interactive client UI to backend APIs.
+            Core technologies and engineering methodologies applied across academic and project work.
           </p>
         </div>
 
-        {/* Filter Pills */}
-        <div className="skills-filter-container">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              type="button"
-              className={`filter-btn ${activeCategory === cat ? 'active' : ''}`}
-              onClick={() => setActiveCategory(cat)}
-            >
-              {cat === 'Frontend' && <Layers size={14} />}
-              {cat === 'Backend' && <Server size={14} />}
-              {cat === 'All Skills' && <Boxes size={14} />}
-              <span>{cat}</span>
-              <span className="filter-count">
-                {cat === 'All Skills' 
-                  ? skillsData.length 
-                  : skillsData.filter(s => s.category === cat).length}
-              </span>
-            </button>
-          ))}
-        </div>
-
-        {/* CSS Grid of Interactive Skill Cards */}
+        {/* Skills Grid */}
         <div className="skills-grid">
-          {filteredSkills.map((skill, index) => (
-            <div 
-              key={skill.name} 
-              className="skill-card card-glass"
-              style={{ '--skill-color': skill.accent }}
-            >
-              <div className="skill-header">
-                <div className="skill-icon-wrapper">
-                  {skill.icon}
-                </div>
-                <div className="skill-title-block">
-                  <span className="skill-category-badge">{skill.category}</span>
-                  <h3 className="skill-name">{skill.name}</h3>
-                </div>
-              </div>
-
-              <div className="skill-level-strip">
-                <span className="level-dot"></span>
-                <span className="level-name">{skill.level}</span>
-              </div>
-
-              <p className="skill-description">
-                {skill.description}
-              </p>
-
-              <div className="skill-tags">
-                {skill.tags.map(tag => (
-                  <span key={tag} className="skill-tag-pill">
-                    {tag}
-                  </span>
+          {skillCategories.map((cat, idx) => (
+            <div key={idx} className="skill-category-card card-clean">
+              <h3 className="category-title">{cat.title}</h3>
+              <div className="category-skills-list">
+                {cat.skills.map((skill, sIdx) => (
+                  <div key={sIdx} className="skill-item">
+                    <span className="skill-name">{skill.name}</span>
+                    <span className="skill-desc">{skill.description}</span>
+                  </div>
                 ))}
               </div>
-
-              <div className="skill-glow-accent"></div>
             </div>
           ))}
-        </div>
-
-        {/* Additional Architecture & Workflow Highlights */}
-        <div className="skills-workflow-card card-glass">
-          <div className="workflow-left">
-            <div className="workflow-badge">
-              <Sparkles size={16} className="text-cyan" />
-              <span>Modern Development Standards</span>
-            </div>
-            <h4 className="workflow-title">
-              Writing clean, modular, and performance-optimized code
-            </h4>
-            <p className="workflow-text">
-              Committed to component-driven design, responsive-first CSS layouts, semantic accessibility, and clean Git version control workflows.
-            </p>
-          </div>
-          <div className="workflow-checks">
-            <div className="workflow-check-item">
-              <Check size={18} className="check-icon" />
-              <span>Functional Components &amp; React Hooks</span>
-            </div>
-            <div className="workflow-check-item">
-              <Check size={18} className="check-icon" />
-              <span>CSS Flexbox &amp; CSS Grid Mastery</span>
-            </div>
-            <div className="workflow-check-item">
-              <Check size={18} className="check-icon" />
-              <span>Mobile-First Responsive Web Design</span>
-            </div>
-            <div className="workflow-check-item">
-              <Check size={18} className="check-icon" />
-              <span>RESTful API Integration &amp; JSON Handling</span>
-            </div>
-          </div>
         </div>
 
       </div>
     </section>
   );
 }
-
