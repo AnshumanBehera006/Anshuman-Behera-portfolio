@@ -6,7 +6,7 @@ export default function Education() {
     {
       degree: 'B.Tech (Pursuing) — 4th Year',
       institution: 'Engineering & Technology',
-      year: 'Graduating 2026',
+      year: '2023 – 2027',
       board: 'Degree Program',
       score: '4th Year Standing',
       details: 'Focusing on computer science fundamentals, web engineering, software design, and practical full-stack projects.'

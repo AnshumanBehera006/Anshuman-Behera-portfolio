@@ -82,7 +82,7 @@ export default function Hero({ onOpenResume }) {
             </div>
             <div className="stat-divider"></div>
             <div className="stat-item">
-              <span className="stat-title">2022 – 2026</span>
+              <span className="stat-title">2023 – 2027</span>
               <span className="stat-desc">B.Tech Standing</span>
             </div>
           </div>
